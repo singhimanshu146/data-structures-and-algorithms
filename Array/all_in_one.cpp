@@ -10,6 +10,10 @@ void InsertAtBeg(){                                                            /
     cout << "Enter the number to insert: ";
     int a;
     cin >> a;
+    if(size >= 100){
+        cout << "The Array is full\n" << endl;
+        return;
+    }
     for(int i = size-1; i >= 0; i--){
         Arr[i+1] = Arr[i];
     }
@@ -23,8 +27,10 @@ void InsertAtPos(){                                                            /
     cout << "Enter the position: ";
     int pos, el;
     cin >> pos;
-    if(pos <= 0 || pos > size+1){
+
+    if(size >= MAX || pos < 1 || pos > size + 1){
         cout << "Invalid Postion";
+        return;
     }
     cout << "Enter the element: ";
     cin >> el;
@@ -39,6 +45,10 @@ void InsertAtPos(){                                                            /
 
 void InsertAtEnd(){                                                            //INSERT AT END
     cout << "Enter the Element: ";
+    if(size >= 100){
+        cout << "The Array is full\n" << endl;
+        return;
+    }
     int el;
     cin >> el;
     Arr[size] = el;
@@ -50,6 +60,10 @@ void UpdateArr(){
     cout << "Enter the position to be modified: ";
     int i, el;
     cin >> i;
+    if(i < 1 || i > size){
+        cout << "Invalid Positon\n" << endl;
+        return;
+    }
     cout << "Enter the New Value: ";
     cin >> el;
     Arr[i-1] = el;
@@ -58,6 +72,11 @@ void UpdateArr(){
 //DELTION OF ELEMENT
 
 void DeleteFromBeg(){                                                          //DELETE FROM BEGINING
+    if(size == 0){
+        cout << "Nothing to delete\n" << endl;
+        return;
+    }
+
     for(int i = 0; i < size-1; i++){
         Arr[i] = Arr[i+1];
     }
@@ -66,10 +85,21 @@ void DeleteFromBeg(){                                                          /
 
 
 void DeleteAtPos(){                                                            //DELETE FROM POSITION
+    if(size == 0){
+        cout << "The Array is Already empty.\n" << endl;
+        return;
+    }
+    
     cout << "Enter the possition to delete: ";
     int pos;
     cin >> pos;
-    for(int i = pos-1; i < size; i++){
+
+    if(pos < 1 || pos > size){
+        cout << "The position is already empty.\n" << endl;
+        return;
+    }
+    
+    for(int i = pos-1; i < size-1; i++){
         Arr[i] = Arr[i+1];
     }
     size--;
@@ -77,12 +107,20 @@ void DeleteAtPos(){                                                            /
 
 
 void DeleteFromEnd(){                                                           //DLEETE END ELEMENT
+    if(size == 0){
+        cout << "The Array is already Empty\n" << endl;
+        return;
+    }
     size--;
 }
 
 
 //DISPLAY THE ELEMENTS
 void Display(){
+    if(size == 0){
+        cout << "Nothing to Display(Array is empty)";
+        return;
+    }
     cout << "ELEMENTS OF THE ARRAY: ";
     for(int i = 0; i < size; i++){
         cout << Arr[i];
@@ -95,7 +133,7 @@ void Display(){
 int main(){
     while(1){
         // SELECT THE OPERATIONS TO PERFORM
-        cout << "1.Insert\n2.Update\n3.Delete\n4.Search a element\n5.Display\nEnter the choice(1-5): ";
+        cout << "1.Insert\n2.Update\n3.Delete\n4.Search a element\n5.Display\n6.EXIT the program.\nEnter the choice(1-6): ";
         int n;
         cin >> n;
         switch(n){
@@ -152,8 +190,12 @@ int main(){
             case 5:
                 Display();
                 break;
+            //CASE: 6
+            case 6:
+                return 0;
+
             default:
-                cout << "Enter a Valid Choices";
+                cout << "Enter a Valid Choices\n" << endl;
         }
     }
     return 0;
