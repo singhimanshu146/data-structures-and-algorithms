@@ -114,6 +114,23 @@ void DeleteFromEnd(){                                                           
     size--;
 }
 
+//SEARCH THE ELEMENT
+void Search(){
+    if(size == 0){
+        cout << "Array is Empty\n" << endl;
+        return;
+    }
+    cout << "Enter the element to search: ";
+    int el;
+    cin >> el;
+    for(int i = 0; i < size; i++){
+        if(Arr[i] == el){
+            cout << "Found at position: " << i + 1 << "\n" << endl;
+            return;
+        }
+    }
+    cout << "Element not FOUND!";
+}
 
 //DISPLAY THE ELEMENTS
 void Display(){
@@ -184,7 +201,7 @@ int main(){
                 break;
             //CASE: 4
             case 4:
-                cout << "Call the search function";
+                Search();
                 break;
             //CASE: 5
             case 5:
