@@ -9,6 +9,7 @@ This repository contains my implementations and practice programs as I learn dif
 - Singly Linked List
 - Doubly Linked List
 - Stack Using Array
+- Stack Using Linked List
 
 ## Language
 
