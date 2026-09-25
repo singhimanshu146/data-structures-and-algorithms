@@ -10,6 +10,7 @@ This repository contains my implementations and practice programs as I learn dif
 - Doubly Linked List
 - Stack Using Array
 - Stack Using Linked List
+- Queue using Array
 
 ## Language
 
