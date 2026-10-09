@@ -11,6 +11,7 @@ This repository contains my implementations and practice programs as I learn dif
 - Stack Using Array
 - Stack Using Linked List
 - Queue using Array
+- Queue using Linked List
 
 ## Language
 
